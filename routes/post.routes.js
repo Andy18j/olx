@@ -17,6 +17,18 @@ postRouter.post("/post",async(req,res)=>{
     }
 })
 
+//get all the products 
+
+postRouter.get("/",async(req,res)=>{
+    try{
+             let pro = await  postModel.find()
+             res.status(201).json({msg:"OLX products",pro})
+    }
+    catch(err){
+        res.status(402).json({msg:"Something went wrongg.."})
+    }
+})
+
 // for delete the itmes ?  /   
 
 postRouter.delete("/delete/:id",async(req,res)=>{
